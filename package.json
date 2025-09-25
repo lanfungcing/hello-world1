@@ -1,0 +1,30 @@
+{
+    "name": "@fqlan/hello-world1",
+    "version": "0.0.1",
+    "description": "Hello world app with node-gyp-build and prebuildify",
+    "main": "./index.js",
+    "author": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lanfungcing/hello-world1.git"
+    },
+    "files": [
+        "binding.gyp",
+        "index.js",
+        "src/hello.c",
+        "prebuilds"
+    ],
+    "dependencies": {
+        "node-gyp-build": "^4.0.0",
+        "node-gyp": "^11.3.0"
+    },
+    "devDependencies": {
+        "prebuildify": "^6.0.1"
+    },
+    "scripts": {
+        "install": "node-gyp-build",
+        "prebuild": "prebuildify --napi --strip --target=22.19.0",
+        "prebuild-darwin-x64+arm64": "prebuildify --arch x64+arm64 --napi --strip --target=22.19.0",
+        "test": "node index.js"
+    }
+}

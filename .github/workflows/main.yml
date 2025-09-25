@@ -52,7 +52,7 @@ jobs:
       - run: echo "version=$(git describe --tags)" >> $GITHUB_OUTPUT
         id: get_version
       - run:
-          tar -cvf "${{ steps.get_version.outputs.version }}-darwin-x64+arm64.tar" -C "prebuilds" darwin-x64+arm64
+          tar -cvf "${{ steps.get_version.outputs.version }}-darwin-x64.tar" -C "prebuilds" darwin-x64
       - run:
           tar -cvf "${{ steps.get_version.outputs.version }}-linux-x64.tar" -C "prebuilds" linux-x64
       - run:

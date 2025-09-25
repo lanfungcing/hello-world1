@@ -28,9 +28,6 @@ jobs:
           architecture: ${{ matrix.arch }}
       - run: npm install
       - run: npm run prebuild
-        if: matrix.os != 'macos-latest'
-      - run: npm run prebuild-darwin-x64+arm64
-        if: matrix.os == 'macos-latest'
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os }}-${{ matrix.arch }}
